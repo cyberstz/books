@@ -2,23 +2,25 @@
 
 namespace Database\Factories;
 
+use App\Models\Client;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
+/**
+ * @extends Factory<Client>
+ */
 class ClientFactory extends Factory
 {
     /**
      * Define the model's default state.
      *
-     * @return array
+     * @return array<string, mixed>
      */
-    public function definition()
+    public function definition(): array
     {
-        $faker = \Faker\Factory::create();
-
         return [
-            'name' => $this->faker->name(),
-            'email' => $this->faker->unique()->safeEmail(),
-            'phone' => $this->faker->e164PhoneNumber()
+            'name' => fake()->name(),
+            'email' => fake()->unique()->safeEmail(),
+            'phone' => fake()->e164PhoneNumber(),
         ];
     }
 }

@@ -10,10 +10,8 @@ class AuthorSeeder extends Seeder
 {
     /**
      * Run the database seeds.
-     *
-     * @return void
      */
-    public function run()
+    public function run(): void
     {
         Author::factory()->count(60)->create();
     }

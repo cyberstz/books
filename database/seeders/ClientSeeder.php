@@ -10,10 +10,8 @@ class ClientSeeder extends Seeder
 {
     /**
      * Run the database seeds.
-     *
-     * @return void
      */
-    public function run()
+    public function run(): void
     {
         Client::factory()->count(50)->create();
     }

@@ -2,22 +2,24 @@
 
 namespace Database\Factories;
 
+use App\Models\Warehouse;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
+/**
+ * @extends Factory<Warehouse>
+ */
 class WarehouseFactory extends Factory
 {
     /**
      * Define the model's default state.
      *
-     * @return array
+     * @return array<string, mixed>
      */
-    public function definition()
+    public function definition(): array
     {
-        $faker = \Faker\Factory::create();
-
         return [
-            'address' => $faker->streetAddress,
-            'capacity' => $faker->numberBetween(500, 2000)
+            'address' => fake()->streetAddress(),
+            'capacity' => fake()->numberBetween(500, 2000),
         ];
     }
 }

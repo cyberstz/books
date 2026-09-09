@@ -2,20 +2,18 @@
 
 namespace Tests\Feature;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
 class ExampleTest extends TestCase
 {
     /**
-     * A basic test example.
-     *
-     * @return void
+     * The home route sits behind the "auth" middleware, so a guest is sent
+     * to the login screen rather than being served the application shell.
      */
-    public function test_example()
+    public function test_guests_are_redirected_to_the_login_screen(): void
     {
         $response = $this->get('/');
 
-        $response->assertStatus(200);
+        $response->assertRedirect('/login');
     }
 }

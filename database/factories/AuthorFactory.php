@@ -2,21 +2,23 @@
 
 namespace Database\Factories;
 
+use App\Models\Author;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
+/**
+ * @extends Factory<Author>
+ */
 class AuthorFactory extends Factory
 {
     /**
      * Define the model's default state.
      *
-     * @return array
+     * @return array<string, mixed>
      */
-    public function definition()
+    public function definition(): array
     {
-        $faker = \Faker\Factory::create();
-
         return [
-            'name' => $faker->firstName . ' ' . $faker->lastName
+            'name' => fake()->firstName().' '.fake()->lastName(),
         ];
     }
 }

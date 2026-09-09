@@ -2,22 +2,24 @@
 
 namespace Database\Factories;
 
+use App\Models\Book;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
+/**
+ * @extends Factory<Book>
+ */
 class BookFactory extends Factory
 {
     /**
      * Define the model's default state.
      *
-     * @return array
+     * @return array<string, mixed>
      */
-    public function definition()
+    public function definition(): array
     {
-        $faker = \Faker\Factory::create();
-
         return [
-            'name' => $faker->words($faker->numberBetween(1, 4), true),
-            'author_id' => $faker->numberBetween(1, 60)
+            'name' => fake()->words(fake()->numberBetween(1, 4), true),
+            'author_id' => fake()->numberBetween(1, 60),
         ];
     }
 }
