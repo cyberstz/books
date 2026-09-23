@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
-
+use App\Http\Requests\StoreWarehouseRequest;
 use Illuminate\Http\Request;
 
 use App\Models\Warehouse;
@@ -31,13 +31,7 @@ class WarehouseController extends Controller
         return $books;
     }
 
-
-    public function store(Request $request) {
-        $request->validate([
-            'address' => 'required',
-            'capacity' => 'required'
-        ]);
-
+    public function store(StoreWarehouseRequest $request) {
         Warehouse::updateOrCreate(
             ['address' => $request->address],
             ['capacity' => $request->capacity]

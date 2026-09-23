@@ -16,6 +16,7 @@ Route::middleware('auth')->group(function() {
 
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+
 Route::get('test', function() {
     User::create([
         'name' => 'Test',
